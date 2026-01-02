@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "eALPS Login Helper",
   "version": "1.0",
-  "description": "信州大学のeALPSログイン画面において、ID入力などの操作を補助するためのツールです。",
+  "description": "信州大学のeALPSログイン画面において、多要素認証の操作を補助するためのツールです。",
   "permissions": [
     "storage"
   ],
@@ -29,4 +29,5 @@
       "run_at": "document_idle"
     }
   ]
+
 }
