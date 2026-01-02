@@ -75,5 +75,5 @@ chrome.storage.sync.get(['matrixChars'], (result) => {
             }, 500);
         }
 
-    }, 650); // 待ち時間を1000ms(1秒)に変更
+    }, 600); // 待ち時間を1000ms(1秒)に変更
 });

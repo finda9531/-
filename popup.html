@@ -2,179 +2,212 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  
   <style>
     :root {
-      /* 落ち着いたミスティブルー・グレーのグラデーション */
-      --bg-gradient: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+      /* Google Material 3 Colors (Tonal Palette) */
+      --primary: #0b57d0; 
       
-      /* ガラスの質感（白ベースで少し不透明度を高めて落ち着かせる） */
-      --glass-bg: rgba(255, 255, 255, 0.7);
-      --glass-border: rgba(255, 255, 255, 0.8);
+      /* 薄い水色（背景用） */
+      --secondary-container: #d3e3fd; 
+      /* 濃い紺色（文字・アイコン用） */
+      --on-secondary-container: #041e49;
+
+      --surface: #ffffff;
+      --surface-container: #f0f2f5;
       
-      /* テキスト色：真っ黒ではなく濃いグレー */
-      --text-main: #4a5568;
-      --text-sub: #718096;
-      
-      /* アクセントカラー：彩度を抑えたインディゴブルー */
-      --accent-color: #5a67d8;
+      --text-main: #1f1f1f;
+      --text-sub: #444746;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      padding: 20px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-image: var(--bg-gradient);
-      width: 260px; /* 幅はコンパクトに */
+      padding: 24px;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--surface);
+      width: 280px;
       color: var(--text-main);
+    }
+
+    /* ヘッダー */
+    header {
+      margin-bottom: 28px;
       display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-icon-bg {
+      width: 40px;
+      height: 40px;
+      /* ヘッダーアイコンも統一感のあるTonal配色 */
+      background-color: var(--secondary-container);
+      color: var(--on-secondary-container);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      min-height: 400px;
+    }
+    
+    .header-icon-bg .material-symbols-rounded {
+        font-size: 20px;
     }
 
-    /* メインカード */
-    .card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h2 {
-      margin: 0 0 5px 0;
+    .header-text h2 {
+      margin: 0;
       font-size: 16px;
-      font-weight: 600;
-      text-align: center;
-      letter-spacing: 0.5px;
-      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.2;
     }
 
-    p.subtitle {
+    .header-text p {
+      margin: 2px 0 0 0;
       font-size: 11px;
-      text-align: center;
       color: var(--text-sub);
-      margin: 0 0 20px 0;
     }
 
-    /* 入力グループ（縦並び） */
+    /* 入力エリア */
     .input-container {
       display: flex;
       flex-direction: column;
-      gap: 12px; /* 入力欄同士の間隔 */
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-bottom: 32px;
     }
 
     .input-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.5); /* 欄の背景を少し白く */
-      border-radius: 8px;
-      padding: 0 10px;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
+      gap: 12px;
     }
 
-    /* フォーカス時の光る演出（控えめに） */
-    .input-row:focus-within {
-      background: #fff;
-      border-color: #cbd5e0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    .step-badge {
+      width: 24px;
+      height: 24px;
+      /* バッジも統一感のあるTonal配色 */
+      background-color: var(--secondary-container);
+      color: var(--on-secondary-container);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: monospace;
+      flex-shrink: 0;
     }
 
-    label {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-sub);
-      width: 30px; /* ラベル幅固定 */
-    }
-
+    /* 入力欄 */
     input[type="text"] {
-      border: none;
-      background: transparent;
-      height: 40px;
-      width: 100%;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 600;
+      flex: 1;
+      padding: 10px 16px;
+      font-size: 14px;
       color: var(--text-main);
+      background-color: var(--surface-container);
+      border: none;
+      border-radius: 999px;
       outline: none;
-      letter-spacing: 1px;
+      text-align: center;
+      font-family: monospace;
+      font-weight: 600;
       text-transform: uppercase;
+      transition: box-shadow 0.2s;
     }
 
+    input[type="text"]:focus {
+      background-color: #ffffff;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    
     input[type="text"]::placeholder {
-      color: #cbd5e0;
+      color: #8e918f;
       font-weight: normal;
     }
 
-    /* ボタンデザイン */
+    /* ボタン (Filled Tonal Button) */
     button {
-      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       width: 100%;
-      padding: 12px;
-      background-color: var(--accent-color);
-      color: white;
+      height: 40px;
+      
+      /* 背景と文字色を「数字バッジ」と同じルールに変更 */
+      background-color: var(--secondary-container);
+      color: var(--on-secondary-container);
+      
       border: none;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.2s, transform 0.1s;
-      box-shadow: 0 2px 4px rgba(90, 103, 216, 0.3);
+      transition: all 0.2s ease;
+      box-shadow: none;
     }
 
     button:hover {
-      background-color: #4c51bf;
+      background-color: #c4d7fc; /* 少し濃く */
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     }
 
     button:active {
       transform: scale(0.98);
+      box-shadow: none;
+    }
+    
+    button .material-symbols-rounded {
+        font-size: 18px;
     }
 
     #status {
-      margin-top: 10px;
-      font-size: 11px;
+      margin-top: 12px;
+      font-size: 12px;
       text-align: center;
-      color: #48bb78; /* 成功時の緑も少し落ち着いた色に */
-      height: 15px;
+      color: #146c2e;
+      min-height: 18px;
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h2>Login Pattern</h2>
-    <p class="subtitle">Configuration</p>
-    
-    <div class="input-container">
-      <div class="input-row">
-        <label>1st</label>
-        <input type="text" id="char1" maxlength="1" placeholder="A">
-      </div>
-      <div class="input-row">
-        <label>2nd</label>
-        <input type="text" id="char2" maxlength="1" placeholder="B">
-      </div>
-      <div class="input-row">
-        <label>3rd</label>
-        <input type="text" id="char3" maxlength="1" placeholder="C">
-      </div>
-      <div class="input-row">
-        <label>4th</label>
-        <input type="text" id="char4" maxlength="1" placeholder="D">
-      </div>
+  <header>
+    <div class="header-icon-bg">
+      <span class="material-symbols-rounded">lock</span>
     </div>
-
-    <button id="saveBtn">Save Settings</button>
-    <div id="status"></div>
+    <div class="header-text">
+      <h2>設定順</h2>
+      
+    </div>
+  </header>
+  
+  <div class="input-container">
+    <div class="input-row">
+      <div class="step-badge">1</div>
+      <input type="text" id="char1" maxlength="1" placeholder="A">
+    </div>
+    <div class="input-row">
+      <div class="step-badge">2</div>
+      <input type="text" id="char2" maxlength="1" placeholder="B">
+    </div>
+    <div class="input-row">
+      <div class="step-badge">3</div>
+      <input type="text" id="char3" maxlength="1" placeholder="C">
+    </div>
+    <div class="input-row">
+      <div class="step-badge">4</div>
+      <input type="text" id="char4" maxlength="1" placeholder="D">
+    </div>
   </div>
+
+  <button id="saveBtn">
+    <span class="material-symbols-rounded">download</span>
+    <span>保存</span>
+  </button>
+  
+  <div id="status"></div>
 
   <script src="popup.js"></script>
 </body>
